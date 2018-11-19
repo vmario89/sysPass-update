@@ -130,7 +130,7 @@ rm composer-setup.php
  
 echo "Installing Composer modules ..."
 php composer.phar install
-php compuser.phar update
+php composer.phar update
  
 chown -R www-data:$SPUSER "$APP_PATH"/
 chmod -R 750 "$APP_PATH"/
