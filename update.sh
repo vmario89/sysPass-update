@@ -25,23 +25,22 @@ case $i in
 esac
 done
 #if [[ -n $1 ]]; then
-#    echo "Unzuweisebare Commandline-Argumente:"
+#    echo "Unassignable commandline arguments:"
 #    tail -1 $1
 #fi
  
-#CommitID notwendig - ansonsten exit
 if [ -z "$COMMITID" ]; then
-        echo "-ci Parameter notwendig! > CommitID (Release-Version)"
+        echo "-ci parameter required! > set a commit id of any branch you like to checkout"
         exit
 fi
  
 if [ -z "$APP_PATH" ]; then
-        echo "-p Parameter notwendig! > Zielpfad (/var/www/vhosts/fablabchemnitz.de)"
+        echo "-p parameter required! > target path (for example /var/www/vhosts/yourdomain.de)"
         exit
 fi
  
 if [ -z "$SPUSER" ]; then
-        echo "-su Parameter notwendig! > sysPass Linux OS User (sysPass)"
+        echo "-su parameter required! > sysPass Linux OS User (sysPass)"
         exit
 fi
 
@@ -81,22 +80,20 @@ if [[ ! -d "$CURRENTDIR"/"$BACKUPDIRNAME" ]]; then
         exit 1
 fi
  
-echo "Updating local sysPass git repo clone ..."
-if [ ! -d "cd /opt/sysPass" ]; then
-        mkdir -p /opt/sysPass
-        cd /opt/
+echo "Checking out sysPass repository with provided commit id ..."
+if [ ! -d "cd /tmp/sysPass" ]; then
+        mkdir -p /tmp/sysPass
+        cd /tmp/
         git clone https://github.com/nuxsmin/sysPass.git
 fi
-cd /opt/sysPass
+cd /tmp/sysPass
 git stash drop
 git stash
 git pull
- 
-echo "Checking out provided commit id ..."
 git reset --hard
 git checkout $COMMITID
- 
-echo "Syncing new files to target directory ..."
+
+echo "Syncing new files from /tmp/sysPass to target directory ..."
 rsync -a ./ "$APP_PATH"/ --delete-after
  
 echo "Copying back config files from backup directory to target directory ..."
@@ -154,11 +151,12 @@ cat <<EOT >> "$APP_PATH"/its.its
 </its:rules>
 EOT
  
-#generate messages_ca_ES.pot for xml file actions.xml
-xgettext --from-code=utf-8 -o "$APP_PATH"/messages_es_ES.pot $(find "$APP_PATH"/app/config/  \( -name "actions.xml" \) )  -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --its=./its.its
+#Make use of xgettext to create language file - this is optional and may be used to translate with poedit (https://poedit.net) or POEditor (https://poeditor.com)
+#generate messages_en_US.pot for xml file actions.xml
+xgettext --from-code=utf-8 -o "$APP_PATH"/messages_en_US.pot $(find "$APP_PATH"/app/config/  \( -name "actions.xml" \) )  -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --its=./its.its
  
-#expand messages_ca_ES.pot by .php/.inc files, sorted by file with -F flag; key __u means language set by user; key __ means language set by system (global)
-xgettext --from-code=utf-8 -o "$APP_PATH"/messages_es_ES.pot -j "$APP_PATH"/messages_es_ES.pot $(find .  \( -name "*.php" -o -name "*.inc" \) -not -path "./vendor/*" -not -path "./build/*" -not -path "./schemas/*" ) --language=PHP -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --force-po -k__u -k__
+#expand messages_en_US.pot by .php/.inc files, sorted by file with -F flag; key __u means language set by user; key __ means language set by system (global)
+xgettext --from-code=utf-8 -o "$APP_PATH"/messages_en_US.pot -j "$APP_PATH"/messages_en_US.pot $(find .  \( -name "*.php" -o -name "*.inc" \) -not -path "./vendor/*" -not -path "./build/*" -not -path "./schemas/*" ) --language=PHP -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --force-po -k__u -k__
 
 echo "Version check from MariaDB:"
 mysql --user=$DBUSER --password=$DBPASS --host=$DBHOST --port=$DBPORT --database=$DBNAME -e "SELECT value FROM Config WHERE parameter = 'version';"
