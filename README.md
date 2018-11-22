@@ -2,6 +2,8 @@
 
 A simple bash script to update a sysPass Installation
 
+# Tested on Ubuntu systems only!
+
 Usage:
 
 ```
