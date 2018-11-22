@@ -9,7 +9,7 @@ Usage:
 ```
 cd /opt
 git clone https://github.com/vmario89/sysPass-update.git
-chmod +x /opt/sysPass-Update/update.sh
+chmod +x /opt/sysPass-update/update.sh
 
 #Update to latest commit of branch 3.0
 COMMIT=$(git ls-remote https://github.com/nuxsmin/sysPass.git refs/heads/3.0|cut -c-40)
