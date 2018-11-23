@@ -1,11 +1,13 @@
 # sysPass Installation draft - Ubuntu 
-This gist is just a quick draft on how to install the current syspass beta. Maybe i have forgotten something...
+This gist is just a quick draft on how to install the current syspass v3.
 
 ## Hints
 * used web server: apache2
 * uses revery proxy template
 * uses php7.2
 * used database: MariaDB
+
+## How-to install - guide
 
 Get root user
 ```
