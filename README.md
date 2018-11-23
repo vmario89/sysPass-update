@@ -2,14 +2,14 @@
 
 A simple bash script to update a sysPass v3 Installation
 
-Hints:
+## Hints
 * tested on Ubuntu systems only!
 * at the moment the script does uses developer mode. If you want to force a real world production env please modify the script to
 ```
 php composer.phar install --no-dev
 ```
 
-Usage:
+## Usage
 
 ```
 cd /opt
@@ -23,5 +23,5 @@ COMMIT=$(git ls-remote https://github.com/nuxsmin/sysPass.git refs/heads/3.0|cut
 
 You can also use fixed commit id from a release. For example: the version "3.0.0.18111901-rc3" has commit id=afdfa80 (shortened form)
 
-Ideas:
+## Ideas
 * automate frontend upgrade by using headless CLI tools like cURL
