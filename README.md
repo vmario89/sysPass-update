@@ -1,8 +1,13 @@
 # sysPass-Update
 
-A simple bash script to update a sysPass Installation
+A simple bash script to update a sysPass v3 Installation
 
-# Tested on Ubuntu systems only!
+Hints:
+* tested on Ubuntu systems only!
+* at the moment the script does uses developer mode. If you want to force a real world production env please modify the script to
+```
+php composer.phar install --no-dev
+```
 
 Usage:
 
