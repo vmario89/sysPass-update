@@ -196,9 +196,12 @@ Restart apache2
 service apache2 restart
 ```
  
-Visit URL to install sysPass from Frontend now
+### Visit URL to install sysPass from Frontend now
 https://pw.yourdomain.de/index.php?r=install/index 
 
+## Finished!
+
+## Additional things
 If you like to access MariaDB from external clients you can adjust config (Warning: this may be unsafe!)
 ```	
 vim /etc/mysql/mariadb.conf.d/50-server.cnf
