@@ -9,7 +9,10 @@ A simple bash script to update a sysPass v3 Installation
 php composer.phar install --no-dev
 ```
 
-## Usage
+## Installation of sysPass
+The installation could be automated too most users set it up individually. So i provided some basic docs in sysPass-install.md
+
+## Update of sysPass - Usage update.sh
 
 ```
 cd /opt
