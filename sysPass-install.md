@@ -198,3 +198,12 @@ service apache2 restart
  
 Visit URL to install sysPass from Frontend now
 https://pw.yourdomain.de/index.php?r=install/index 
+
+If you like to access MariaDB from external clients you can adjust config (Warning: this may be unsafe!)
+```	
+vim /etc/mysql/mariadb.conf.d/50-server.cnf
+```
+Add line and save:
+```
+bind-address 0.0.0.0
+```
