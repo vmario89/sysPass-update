@@ -210,3 +210,6 @@ Add line and save:
 ```
 bind-address 0.0.0.0
 ```
+```	
+service mysql restart
+```
