@@ -26,5 +26,12 @@ COMMIT=$(git ls-remote https://github.com/nuxsmin/sysPass.git refs/heads/3.0|cut
 
 You can also use fixed commit id from a release. For example: the version "3.0.0.18111901-rc3" has commit id=afdfa80 (shortened form)
 
+Belonging to the version you are upgrading from you may delete old files due to refactoring:
+```
+cd /var/www/vhosts/pw.yourdomain.de/app/config
+rm actions.xml
+rm strings.js.inc
+```
+
 ## Ideas
 * automate frontend upgrade by using headless CLI tools like cURL
