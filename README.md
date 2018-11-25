@@ -35,3 +35,5 @@ rm strings.js.inc
 
 ## Ideas
 * automate frontend upgrade by using headless CLI tools like cURL
+* check if the release version of syspass was correctly applied to config and database
+* check if update worked properly by checking if sql schemes were applied
