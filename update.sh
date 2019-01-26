@@ -168,14 +168,14 @@ EOT
 
 #Make use of xgettext to create language file - this is optional and may be used to translate with poedit (https://poedit.net) or POEditor (https://poeditor.com)
 #generate messages_en_US.pot for xml file actions.xml
-xgettext --from-code=utf-8 -o "$APP_PATH"/messages_en_US.pot $(find "$APP_PATH"/app/config/  \( -name "actions.xml" \) )  -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --its=./its.its
+xgettext --from-code=utf-8 -o "$APP_PATH"/messages_en_US.pot $(find "$APP_PATH"/app/ressources/  \( -name "actions.xml" \) )  -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --its=./its.its
 
 #this will find all PHP Strings
 #expand messages_en_US.pot by .php/.inc files, sorted by file with -F flag; key __u means language set by user; key __ means language set by system (global)
 xgettext --from-code=utf-8 -o "$APP_PATH"/messages_en_US.pot -j "$APP_PATH"/messages_en_US.pot $(find .  \( -name "*.php" -o -name "*.inc" \) -not -path "./vendor/*" -not -path "./build/*" -not -path "./schemas/*" ) --language=PHP -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --force-po -k__u -k__
 
 #this will find all JavaScript strings (e.g. strings.js.inc)
-xgettext --from-code=utf-8 -o "$APP_PATH"/messages_en_US.pot -j "$APP_PATH"/messages_en_US.pot $(find .  \( -name "*.inc" \) -not -path "./vendor/*" -not -path "./build/*" -not -path "./schemas/*" ) --language=JavaScript -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --force-po -k__u -k__
+xgettext --from-code=utf-8 -o "$APP_PATH"/messages_en_US.pot -j "$APP_PATH"/messages_en_US.pot $(find .  \( -name "*.js.inc" \) -not -path "./vendor/*" -not -path "./build/*" -not -path "./schemas/*" ) --language=JavaScript -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --force-po -k__u -k__
 
 
 echo "Version check from MariaDB:"
