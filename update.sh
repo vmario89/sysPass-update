@@ -168,7 +168,7 @@ EOT
 
 #Make use of xgettext to create language file - this is optional and may be used to translate with poedit (https://poedit.net) or POEditor (https://poeditor.com)
 #generate messages_en_US.pot for xml file actions.xml
-xgettext --from-code=utf-8 -o "$APP_PATH"/messages_en_US.pot $(find "$APP_PATH"/app/ressources/  \( -name "actions.xml" \) )  -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --its=./its.its
+xgettext --from-code=utf-8 -o "$APP_PATH"/messages_en_US.pot $(find "$APP_PATH"/app/resources/  \( -name "actions.xml" \) )  -F --copyright-holder=cygnux.org --package-name=syspass --package-version=3.0 --its=./its.its
 
 #this will find all PHP Strings
 #expand messages_en_US.pot by .php/.inc files, sorted by file with -F flag; key __u means language set by user; key __ means language set by system (global)
