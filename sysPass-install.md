@@ -4,7 +4,7 @@ This gist is just a quick draft on how to install the current syspass v3.
 ## Hints
 * used web server: apache2
 * uses revery proxy template
-* uses php7.2
+* uses php7.3
 * used database: MariaDB
 
 ## How-to install - guide
@@ -33,7 +33,7 @@ Install php things
 ```
 add-apt-repository ppa:ondrej/php
 apt-get update
-apt-get install libapache2-mod-php7.2 libsodium23 php7.2 php7.2-cli php7.2-common php7.2-json php7.2-opcache php7.2-readline php7.2-curl php7.2-mysql php7.2-curl php7.2-gd php7.2-json php7.2-ldap php7.2-mbstring php7.2-xml php-xdebug gettext
+apt-get install libapache2-mod-php7.3 libsodium23 php7.3 php7.3-cli php7.3-common php7.3-json php7.3-opcache php7.3-readline php7.3-curl php7.3-mysql php7.3-curl php7.3-gd php7.3-json php7.3-ldap php7.3-mbstring php7.3-xml php-xdebug gettext
 ```
 
 Make an apache web server configuration file
