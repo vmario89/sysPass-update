@@ -20,7 +20,7 @@ git clone https://github.com/vmario89/sysPass-update.git
 chmod +x /opt/sysPass-update/update.sh
 
 #Update to latest commit of branch 3.0
-COMMIT=$(git ls-remote https://github.com/nuxsmin/sysPass.git refs/heads/3.0|cut -c-40)
+COMMIT=$(git ls-remote https://github.com/nuxsmin/sysPass.git refs/heads/v3.0|cut -c-40)
 
 #if you use some dedicated user
 /opt/sysPass-update/update.sh -ci=$COMMIT -su=syspass -p=/var/www/vhosts/pw.yourdomain.de
